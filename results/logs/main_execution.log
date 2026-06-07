@@ -1,0 +1,19 @@
+[INFO  15:27:45] Logger initialized.
+[INFO  15:27:45] Pipeline started - 500K scale.
+[INFO  15:27:45] Random seed: 42
+[INFO  15:27:45] Phase 2: Data Generation started.
+[INFO  15:29:10] Normal data: 350k samples saved.
+[INFO  15:29:32] Attack data: 150k samples saved.
+[INFO  15:30:00] Phase 2 complete. 500k total samples. Time: 134.4 s
+[INFO  15:30:00] Phase 3: Preprocessing started.
+[INFO  15:32:52] Phase 3 complete. 20 features. Train=400k, Test=100k. Time: 172.4 s
+[INFO  15:32:52] Phase 4: Fog Architecture Simulation started.
+[INFO  15:32:52] Phase 4 complete. Time: 0.1 s
+[INFO  15:32:52] Phase 5: Model Training started.
+[INFO  15:35:34] Phase 5 complete. Time: 161.7 s
+[INFO  15:35:34] Phase 6: Testing & Evaluation started.
+[INFO  15:35:48] Phase 6 complete. Ensemble F1=0.9941. Time: 13.6 s
+[INFO  15:35:48] Phase 7: Visualization started.
+[INFO  15:36:27] Phase 7 complete. 12/12 figures. Time: 39.2 s
+[INFO  15:36:27] Pipeline complete. Total: 523.0 seconds (8.7 min).
+[INFO  15:36:27] Total elapsed: 521.7 seconds.

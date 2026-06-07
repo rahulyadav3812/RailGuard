@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# MATLAB session / editor state
+.session/
+
+# Temporary files
+*.tmp
+
+# Common logs generated outside project results
+*.swp

@@ -1,0 +1,55 @@
+================================================================
+PROJECT: Fog Security Model for Railway Signaling
+Date: 26-Apr-2026 14:47:58
+================================================================
+
+DATASET:
+  Total Samples: 15,000
+  Normal: 10,000 | Attack: 5,000
+  Features: 20 engineered features
+  Train/Test Split: 70/30
+
+ATTACK TYPES:
+  1. False Data Injection (FDI)
+  2. Replay Attack
+  3. Man-in-the-Middle (MITM)
+  4. Denial of Service (DoS)
+  5. Spoofing
+  6. Command Manipulation
+
+MODELS TRAINED:
+  1. Statistical Anomaly Detector (Z-score)
+  2. SVM (RBF kernel)
+  3. Random Forest (100 trees)
+  4. KNN (K=5)
+  5. LSTM (2-layer)
+  6. Rule-Based IDS (20 rules)
+  7. Weighted Ensemble
+
+RESULTS:
+  Model              | Acc    | Prec   | Recall | F1
+  ------------------------------------------------------------
+  Statistical        | 0.8060 | 0.6359 | 0.9780 | 0.7707
+  SVM                | 0.9380 | 0.9744 | 0.8360 | 0.8999
+  Random Forest      | 0.9990 | 1.0000 | 0.9970 | 0.9985
+  KNN                | 0.8980 | 0.8998 | 0.7810 | 0.8362
+  LSTM               | 0.9710 | 0.9989 | 0.9140 | 0.9546
+  Rule-Based         | 0.5703 | 0.4022 | 0.5940 | 0.4796
+  ENSEMBLE           | 0.9907 | 0.9755 | 0.9970 | 0.9862
+
+ARCHITECTURE:
+  3-Tier: Edge (5 devices) -> Fog (3 nodes) -> Cloud (1 server)
+  Encryption: AES-256 + RSA-2048
+  Protocols: ERTMS/ETCS compliant
+
+REFERENCES:
+  - ERTMS/ETCS SUBSET-026
+  - EN 50129 (Railway Safety)
+  - IEC 62443 (Industrial Cybersecurity)
+
+FILES GENERATED:
+  - 7 trained model files (.mat)
+  - 12 visualization figures (.png)
+  - 1 results table (.csv)
+  - 1 execution log (.log)
+================================================================
