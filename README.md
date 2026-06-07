@@ -1,57 +1,53 @@
 # RailGuard
 
-RailGuard is a MATLAB-based fog security model for detecting data manipulation attacks in railway signaling and control networks.
+MATLAB-based fog computing security project for detecting cyber attacks in railway signaling and control networks.
 
-The project implements a 3-tier Edge-Fog-Cloud architecture and deploys multi-model threat detection at the fog layer for low-latency security monitoring in safety-critical railway environments.
+## Overview
 
-Author: Rahul Yadav
+RailGuard is a MATLAB implementation of a 3-tier Edge-Fog-Cloud security architecture designed to detect malicious data manipulation close to the source. The project focuses on low-latency attack detection for safety-critical railway environments by placing intelligence at the fog layer instead of relying only on centralized cloud-side analysis.
 
-## Project Overview
+The project report and generated outputs in this repository describe a system that combines classical machine learning, deep learning, statistical anomaly detection, and rule-based detection to identify attacks on signaling and operational telemetry.
 
-This project focuses on protecting railway signaling and control systems against cyber attacks such as false data injection, replay, spoofing, and man-in-the-middle manipulation. It combines statistical detection, classical machine learning, deep learning, and rule-based methods to identify attacks close to the source at fog nodes rather than relying only on cloud-side analysis.
+## Project Highlights
+
+- MATLAB-based fog computing architecture for railway cybersecurity
+- 3-tier deployment model: Edge -> Fog -> Cloud
+- 15,000-sample dataset with 20 engineered features
+- 7 detection approaches, including ensemble learning and LSTM
+- Attack coverage for FDI, replay, MITM, DoS, spoofing, and command manipulation
+- Reported real-time fog-layer detection within the project target
+- Strong best-model and ensemble performance in the included report
 
 ## Architecture
 
-3-tier architecture:
+The design uses distributed processing to perform security analysis at the fog layer.
 
-- Edge Layer
-  - 5 simulated devices:
-    - Signal Controller (S1)
-    - Track Circuit Monitor (TC1)
-    - Points Machine (P1)
-    - Axle Counter (AC1)
-    - Eurobalise (B1)
-- Fog Layer
-  - 3 fog nodes:
-    - Station Fog Node
-    - Junction Fog Node
-    - Lineside Fog Node
-- Cloud Layer
+- Edge layer
+  - Signal Controller (S1)
+  - Track Circuit Monitor (TC1)
+  - Points Machine (P1)
+  - Axle Counter (AC1)
+  - Eurobalise (B1)
+- Fog layer
+  - Station Fog Node
+  - Junction Fog Node
+  - Lineside Fog Node
+- Cloud layer
   - Centralized monitoring
-  - Model retraining
   - Alert aggregation
+  - Long-term storage
+  - Model retraining
 
-Security mechanisms:
+Security mechanisms described in the report:
 - AES-256 encryption
 - RSA-2048 key exchange
 - Fog-layer low-latency inference
 
-## Dataset
+![RailGuard architecture](results/figures/01_architecture.png)
 
-- Total samples: 15,000
-- Normal samples: 10,000
-- Attack samples: 5,000
-- Engineered features: 20
-- Train/test split used in report: 80/20
+## Threat Model
 
-Feature groups include:
-- Signal state, speed, track occupancy
-- Deviation metrics
-- Network metrics such as latency and packet size
-- Integrity validation / hash checks
-- Safety consistency checks
-
-## Attack Types Covered
+RailGuard targets multiple cyber attack classes that can affect signaling integrity and operational decision-making:
 
 - False Data Injection (FDI)
 - Replay Attack
@@ -60,9 +56,28 @@ Feature groups include:
 - Signal Spoofing
 - Command Manipulation
 
+## Dataset Summary
+
+The included report notes the following dataset characteristics:
+
+| Metric | Value |
+|---|---|
+| Total samples | 15,000 |
+| Normal samples | 10,000 |
+| Attack samples | 5,000 |
+| Engineered features | 20 |
+| Split referenced in report summary | 70/30 |
+
+Feature groups include:
+- signaling state and operating parameters
+- deviation and consistency metrics
+- latency and packet characteristics
+- integrity and hash validation checks
+- safety-rule consistency features
+
 ## Detection Models
 
-The project includes seven detection approaches:
+RailGuard includes seven detection approaches:
 
 1. Statistical Anomaly Detector
 2. Support Vector Machine (SVM)
@@ -74,7 +89,7 @@ The project includes seven detection approaches:
 
 ## Reported Results
 
-From the included project report:
+The following metrics are summarized from the project report files included in this repository:
 
 | Model | Accuracy | Precision | Recall | F1-Score |
 |---|---:|---:|---:|---:|
@@ -86,28 +101,24 @@ From the included project report:
 | Rule-Based | 0.5703 | 0.4022 | 0.5940 | 0.4796 |
 | Ensemble | 0.9907 | 0.9755 | 0.9970 | 0.9862 |
 
-Key findings:
+Key takeaways from the report:
 - Best single model: Random Forest
-- Ensemble accuracy: 99.1%
+- Ensemble accuracy: about 99.1%
 - Ensemble recall: 99.7%
-- Fog detection latency advantage: about 25.2x faster than cloud-side processing
-- Real-time target under 500 ms: achieved
+- Fog-layer detection reported as significantly faster than cloud-side processing
+- Real-time detection target under 500 ms reported as achieved
 
-## Standards and Compliance
-
-The report references alignment with:
-- ERTMS/ETCS SUBSET-026
-- EN 50129
-- IEC 62443
+![Model performance comparison](results/figures/06_performance.png)
 
 ## Repository Structure
 
 ```text
 RailGuard/
 ├── README.md
+├── LICENSE
 ├── 10_Rahul.pdf
-├── main.m
 ├── setup.m
+├── main.m
 ├── run_pipeline.m
 ├── run_security_models.m
 ├── run_tuning_and_visualization.m
@@ -124,31 +135,41 @@ RailGuard/
 ├── models/
 └── results/
     ├── figures/
-    ├── tables/
-    └── logs/
+    ├── logs/
+    └── tables/
 ```
 
 ## Important Files
 
-- `10_Rahul.pdf` - project report
-- `main.m` - main execution pipeline
-- `setup.m` - environment setup
-- `run_pipeline.m` - data pipeline execution
-- `run_security_models.m` - model training and evaluation
-- `run_tuning_and_visualization.m` - visualization and tuning workflow
-- `run_phase7_only.m` - targeted phase execution
-- `results/FULL_PROJECT_REPORT.txt` - full text project report
-- `results/PROJECT_SUMMARY.txt` - concise project summary
+| File | Purpose |
+|---|---|
+| `main.m` | Main execution pipeline |
+| `setup.m` | Project setup and path initialization |
+| `run_pipeline.m` | End-to-end data and workflow execution |
+| `run_security_models.m` | Model training and evaluation |
+| `run_tuning_and_visualization.m` | Visualization and tuning workflow |
+| `run_phase7_only.m` | Focused execution for a later project stage |
+| `tests/` | MATLAB test scripts |
+| `results/FULL_PROJECT_REPORT.txt` | Full extracted report text |
+| `results/PROJECT_SUMMARY.txt` | Concise report summary |
+| `results/tables/model_comparison.csv` | Model comparison results |
 
-## How to Run
+## Getting Started
 
-Typical MATLAB workflow:
+### Requirements
 
-1. Open the project in MATLAB or MATLAB Online
-2. Run `setup.m`
-3. Run `main.m`
+- MATLAB
+- Statistics and Machine Learning Toolbox for classical ML workflows
+- Deep Learning Toolbox for LSTM-related components
 
-For staged execution, use:
+### Typical workflow
+
+1. Open the project folder in MATLAB.
+2. Run `setup.m`.
+3. Run `main.m`.
+
+### Alternative execution entry points
+
 - `run_pipeline.m`
 - `run_security_models.m`
 - `run_tuning_and_visualization.m`
@@ -157,16 +178,31 @@ For staged execution, use:
 ## Outputs Included
 
 This repository includes:
-- Source code under `src/`
-- Test files under `tests/`
-- Data artifacts under `data/`
-- Trained models under `models/`
-- Visualization figures under `results/figures/`
-- Logs and summary outputs under `results/`
+- source code under `src/`
+- test files under `tests/`
+- dataset artifacts under `data/`
+- trained models under `models/`
+- figures under `results/figures/`
+- logs and summary outputs under `results/`
 
-## Notes
+## Standards and References
 
-The README description was prepared from the report files included in this folder, especially:
+The report references alignment with:
+- ERTMS/ETCS SUBSET-026
+- EN 50129
+- IEC 62443
+
+## Project Report Sources
+
+This README is based on the project materials included in the repository, especially:
 - `10_Rahul.pdf`
 - `results/FULL_PROJECT_REPORT.txt`
 - `results/PROJECT_SUMMARY.txt`
+
+## Author
+
+Rahul Yadav
+
+## License
+
+This project is released under the MIT License. See `LICENSE` for details.
