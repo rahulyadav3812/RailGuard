@@ -1,26 +1,46 @@
 # RailGuard
 
-MATLAB-based fog computing security project for detecting cyber attacks in railway signaling and control networks.
+[![MATLAB](https://img.shields.io/badge/MATLAB-R2024a%2B-orange?logo=Mathworks&logoColor=white)](https://www.mathworks.com/products/matlab.html)
+[![Latest Release](https://img.shields.io/github/v/release/rahulyadav3812/RailGuard?display_name=tag&sort=semver)](https://github.com/rahulyadav3812/RailGuard/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Project Type](https://img.shields.io/badge/project-fog%20computing-blue)](docs/project-report.md)
+[![Domain](https://img.shields.io/badge/domain-railway%20cybersecurity-red)](docs/project-report.md)
+
+MATLAB fog-computing intrusion detection project for railway signaling security.
 
 ## Overview
 
-RailGuard is a MATLAB implementation of a 3-tier Edge-Fog-Cloud security architecture designed to detect malicious data manipulation close to the source. The project focuses on low-latency attack detection for safety-critical railway environments by placing intelligence at the fog layer instead of relying only on centralized cloud-side analysis.
+RailGuard is a MATLAB-based fog computing project that detects cyber attacks in railway signaling and control networks using a 3-tier Edge-Fog-Cloud architecture. The system is designed to move security analysis closer to operational devices so that threat detection happens at the fog layer with lower latency than cloud-only processing.
 
-The project report and generated outputs in this repository describe a system that combines classical machine learning, deep learning, statistical anomaly detection, and rule-based detection to identify attacks on signaling and operational telemetry.
+The project combines statistical anomaly detection, classical machine learning, deep learning, and rule-based safety checks to identify malicious data manipulation in safety-critical railway environments.
 
-## Project Highlights
+For a cleaner narrative summary of the academic report, see `docs/project-report.md`.
 
-- MATLAB-based fog computing architecture for railway cybersecurity
-- 3-tier deployment model: Edge -> Fog -> Cloud
-- 15,000-sample dataset with 20 engineered features
-- 7 detection approaches, including ensemble learning and LSTM
-- Attack coverage for FDI, replay, MITM, DoS, spoofing, and command manipulation
-- Reported real-time fog-layer detection within the project target
-- Strong best-model and ensemble performance in the included report
+## Why this project matters
+
+- Demonstrates practical use of fog computing for cyber defense
+- Applies MATLAB to a real-world industrial control / railway security use case
+- Compares 7 detection approaches on a structured multi-attack dataset
+- Shows strong reported performance with low-latency fog-layer inference
+- Bridges machine learning, distributed systems, and critical-infrastructure security
+
+## Quick facts
+
+| Metric | Value |
+|---|---|
+| Platform | MATLAB Online / MATLAB |
+| Architecture | Edge -> Fog -> Cloud |
+| Total samples | 15,000 |
+| Engineered features | 20 |
+| Attack classes | 6 |
+| Detection approaches | 7 |
+| Best single model | Random Forest |
+| Best reported ensemble accuracy | 99.1% |
+| Reported fog speedup vs cloud | 25.2x |
 
 ## Architecture
 
-The design uses distributed processing to perform security analysis at the fog layer.
+The design distributes monitoring and detection across three layers.
 
 - Edge layer
   - Signal Controller (S1)
@@ -38,16 +58,16 @@ The design uses distributed processing to perform security analysis at the fog l
   - Long-term storage
   - Model retraining
 
-Security mechanisms described in the report:
+Security features referenced in the report:
 - AES-256 encryption
 - RSA-2048 key exchange
-- Fog-layer low-latency inference
+- real-time fog-layer inference
 
 ![RailGuard architecture](results/figures/01_architecture.png)
 
-## Threat Model
+## Threat model
 
-RailGuard targets multiple cyber attack classes that can affect signaling integrity and operational decision-making:
+RailGuard targets multiple attack classes that can affect signaling integrity and operational decision-making:
 
 - False Data Injection (FDI)
 - Replay Attack
@@ -56,26 +76,26 @@ RailGuard targets multiple cyber attack classes that can affect signaling integr
 - Signal Spoofing
 - Command Manipulation
 
-## Dataset Summary
+## Dataset summary
 
-The included report notes the following dataset characteristics:
+The included report describes the following dataset profile:
 
 | Metric | Value |
 |---|---|
 | Total samples | 15,000 |
 | Normal samples | 10,000 |
 | Attack samples | 5,000 |
+| Train/test split | 80/20 |
 | Engineered features | 20 |
-| Split referenced in report summary | 70/30 |
 
 Feature groups include:
-- signaling state and operating parameters
+- signal state, speed, and track occupancy
 - deviation and consistency metrics
-- latency and packet characteristics
-- integrity and hash validation checks
+- network latency and packet attributes
+- hash and integrity validation checks
 - safety-rule consistency features
 
-## Detection Models
+## Detection models
 
 RailGuard includes seven detection approaches:
 
@@ -87,9 +107,9 @@ RailGuard includes seven detection approaches:
 6. Rule-Based IDS
 7. Weighted Ensemble Model
 
-## Reported Results
+## Reported results
 
-The following metrics are summarized from the project report files included in this repository:
+The following results are summarized from the included project report files:
 
 | Model | Accuracy | Precision | Recall | F1-Score |
 |---|---:|---:|---:|---:|
@@ -101,21 +121,24 @@ The following metrics are summarized from the project report files included in t
 | Rule-Based | 0.5703 | 0.4022 | 0.5940 | 0.4796 |
 | Ensemble | 0.9907 | 0.9755 | 0.9970 | 0.9862 |
 
-Key takeaways from the report:
+Key takeaways:
 - Best single model: Random Forest
-- Ensemble accuracy: about 99.1%
+- Ensemble accuracy: 99.1%
 - Ensemble recall: 99.7%
-- Fog-layer detection reported as significantly faster than cloud-side processing
-- Real-time detection target under 500 ms reported as achieved
+- Reported fog-layer latency: 4.14 ms for 1000 samples
+- Reported cloud-layer latency: 104.14 ms for 1000 samples
+- Real-time target under 500 ms: achieved
 
 ![Model performance comparison](results/figures/06_performance.png)
 
-## Repository Structure
+## Repository structure
 
 ```text
 RailGuard/
 ├── README.md
 ├── LICENSE
+├── docs/
+│   └── project-report.md
 ├── 10_Rahul.pdf
 ├── setup.m
 ├── main.m
@@ -139,7 +162,7 @@ RailGuard/
     └── tables/
 ```
 
-## Important Files
+## Important files
 
 | File | Purpose |
 |---|---|
@@ -149,18 +172,18 @@ RailGuard/
 | `run_security_models.m` | Model training and evaluation |
 | `run_tuning_and_visualization.m` | Visualization and tuning workflow |
 | `run_phase7_only.m` | Focused execution for a later project stage |
-| `tests/` | MATLAB test scripts |
+| `docs/project-report.md` | Clean markdown version of the report |
 | `results/FULL_PROJECT_REPORT.txt` | Full extracted report text |
 | `results/PROJECT_SUMMARY.txt` | Concise report summary |
 | `results/tables/model_comparison.csv` | Model comparison results |
 
-## Getting Started
+## Getting started
 
 ### Requirements
 
 - MATLAB
-- Statistics and Machine Learning Toolbox for classical ML workflows
-- Deep Learning Toolbox for LSTM-related components
+- Statistics and Machine Learning Toolbox
+- Deep Learning Toolbox
 
 ### Typical workflow
 
@@ -175,24 +198,30 @@ RailGuard/
 - `run_tuning_and_visualization.m`
 - `run_phase7_only.m`
 
-## Outputs Included
+## Releases and versioning
 
-This repository includes:
-- source code under `src/`
-- test files under `tests/`
-- dataset artifacts under `data/`
-- trained models under `models/`
-- figures under `results/figures/`
-- logs and summary outputs under `results/`
+This repository now follows simple semantic versioning for milestone snapshots.
 
-## Standards and References
+| Version | Status | Notes |
+|---|---|---|
+| `v1.0.0` | Initial public release | MATLAB fog-computing railway cybersecurity project, README polish, license, and report documentation |
+
+Release guidance:
+- `v1.x` for documentation, reproducibility, and workflow improvements
+- `v2.x` for major architecture or model changes
+- GitHub Releases can be used to publish milestone snapshots of code, documentation, and results
+
+See the Releases page:
+https://github.com/rahulyadav3812/RailGuard/releases
+
+## Standards and references
 
 The report references alignment with:
 - ERTMS/ETCS SUBSET-026
 - EN 50129
 - IEC 62443
 
-## Project Report Sources
+## Project report sources
 
 This README is based on the project materials included in the repository, especially:
 - `10_Rahul.pdf`
