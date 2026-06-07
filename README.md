@@ -19,10 +19,25 @@ For a cleaner narrative summary of the academic report, see `docs/project-report
 ## Why this project matters
 
 - Demonstrates practical use of fog computing for cyber defense
-- Applies MATLAB to a real-world industrial control / railway security use case
+- Applies MATLAB to a real-world industrial control and railway security use case
 - Compares 7 detection approaches on a structured multi-attack dataset
 - Shows strong reported performance with low-latency fog-layer inference
-- Bridges machine learning, distributed systems, and critical-infrastructure security
+- Connects machine learning, distributed systems, and critical-infrastructure security
+
+## Skills demonstrated
+
+This project highlights skills that are useful to recruiters evaluating cloud, cybersecurity, AI, and systems work:
+
+- MATLAB system design and technical prototyping
+- Fog and edge computing architecture
+- Cybersecurity analytics for critical infrastructure
+- Machine learning model comparison and evaluation
+- Deep learning with LSTM-based sequence modeling
+- Feature engineering and attack-dataset preparation
+- Performance benchmarking and latency analysis
+- Visualization and experiment reporting
+- Defense-in-depth design using statistical, ML, DL, and rule-based methods
+- Technical documentation and reproducible project organization
 
 ## Quick facts
 
@@ -200,7 +215,7 @@ RailGuard/
 
 ## Releases and versioning
 
-This repository now follows simple semantic versioning for milestone snapshots.
+This repository follows simple semantic versioning for milestone snapshots.
 
 | Version | Status | Notes |
 |---|---|---|
@@ -213,6 +228,18 @@ Release guidance:
 
 See the Releases page:
 https://github.com/rahulyadav3812/RailGuard/releases
+
+## Future work
+
+Potential next steps for extending RailGuard:
+
+- validate the pipeline on larger or real industrial telemetry datasets
+- add streaming or online inference instead of batch evaluation only
+- evaluate explainability methods for operational decision support
+- integrate additional deep-learning and anomaly-detection models
+- simulate more railway-specific fault and attack scenarios
+- package the workflow into a cleaner reusable MATLAB project template
+- connect fog-node alerts to a live dashboard or SIEM-style workflow
 
 ## Standards and references
 
